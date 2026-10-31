@@ -3,12 +3,8 @@ services:
     build: .
     restart: unless-stopped
     environment:
-      SPRING_R2DBC_URL: r2dbc:postgresql://CONTAINER_NAME:5432/billing
+      SPRING_R2DBC_URL: r2dbc:postgresql://host.docker.internal:5432/billing
+      SPRING_R2DBC_USERNAME: billing
       DB_PASSWORD: ${DB_PASSWORD}
-    ports: ["127.0.0.1:8085:8080"]
-    networks: [shared]
-
-networks:
-  shared:
-    external: true
-    name: NETWORK_NAME_FROM_ABOVE
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    ports: ["8085:8080"]
