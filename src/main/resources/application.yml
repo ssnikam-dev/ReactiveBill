@@ -4,7 +4,7 @@ spring:
   r2dbc:
     url: r2dbc:postgresql://localhost:5432/billing
     username: billing
-    password: billing
+    password: ${DB_PASSWORD}
   sql:
     init:
       mode: always        # runs schema.sql at startup (R2DBC has no auto DDL)
@@ -12,6 +12,9 @@ spring:
 logging:
   level:
     com.billing: INFO
+
+server:
+  port: 8085
 
 springdoc:
   swagger-ui:
