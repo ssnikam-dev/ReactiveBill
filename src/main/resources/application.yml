@@ -2,7 +2,7 @@ spring:
   application:
     name: reactive-billing-api
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/billing
+    url: r2dbc:postgresql://76.13.221.84:5432/billing
     username: billing
     password: ${DB_PASSWORD}
   sql:
