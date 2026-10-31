@@ -13,9 +13,6 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
-volumes:
- pgdata:
-
   api:
     build: .
     depends_on:
@@ -24,3 +21,7 @@ volumes:
     environment:
       SPRING_R2DBC_URL: r2dbc:postgresql://postgres:5432/billing
     ports: ["8080:8080"]
+volumes:
+ pgdata:
+
+  
